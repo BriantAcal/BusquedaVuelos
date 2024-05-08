@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.luismunyoz.flightsearch.ui.screens.search_places.SearchPlacesActivity"
+    android:background="@color/pale_grey">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@color/colorPrimary"
+            app:layout_scrollFlags="scroll|enterAlways">
+            <android.support.design.widget.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/main_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:title="@string/search_locations"/>
+            </android.support.design.widget.AppBarLayout>
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/double_margin">
+                <EditText
+                    android:id="@+id/search_places_box"
+                    android:layout_width="0dp"
+                    android:layout_height="46dp"
+                    android:hint="@string/country_city_or_airport"
+                    android:inputType="text"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/search_places_search"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintHorizontal_chainStyle="spread" />
+                <Button
+                    android:id="@+id/search_places_search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/search"
+                    app:layout_constraintStart_toEndOf="@id/search_places_box"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="@dimen/double_margin"
+                    android:theme="@style/BlueButton"
+                    android:textColor="@color/white"/>
+            </android.support.constraint.ConstraintLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/search_places_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+
+</android.support.design.widget.CoordinatorLayout>
